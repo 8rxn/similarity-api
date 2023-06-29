@@ -5,8 +5,14 @@ import LargeHeading from "@/components/ui/LargeHeading";
 import Paragraph from "@/components/ui/Paragraph";
 import Link from "next/link";
 import { FC } from "react";
+import { Metadata } from "next";
 
-const page: FC = async () => {
+export const metadata: Metadata = {
+  title: "Login | Similarity API",
+  description: "Free and Open Source",
+};
+
+const page: FC = () => {
   return (
     <>
       <div className="absolute inset-0 mx-auto container flex h-screen flex-col items-center justify-center">
