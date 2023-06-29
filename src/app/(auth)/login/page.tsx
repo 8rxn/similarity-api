@@ -6,6 +6,9 @@ import Paragraph from "@/components/ui/Paragraph";
 import Link from "next/link";
 import { FC } from "react";
 import { Metadata } from "next";
+import { notFound, redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Login | Similarity API",

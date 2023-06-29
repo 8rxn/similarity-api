@@ -44,19 +44,19 @@ export default withAuth(
     const isAuthPage = pathname.startsWith("/login");
 
     const sensitiveRoutes = ["/dashboard"];
-    if (isAuthPage && isAuth) {
-      return NextResponse.redirect("/dashboard");
-    }
+    if (isAuthPage) {
+      if (isAuth) {
+        return NextResponse.redirect(new URL('/dashboard', req.url))
+      }
 
-    if (isAuthPage && !isAuth) {
-      return null;
+      return null
     }
 
     if (
       !isAuth &&
       sensitiveRoutes.some((route) => pathname.startsWith(route))
     ) {
-      return null;
+      return NextResponse.redirect(new URL('/login', req.url))
     }
   },
   {
